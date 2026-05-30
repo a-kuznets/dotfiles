@@ -14,6 +14,7 @@ return {
         local servers = {
             "gopls",
             "lua_ls",
+            "ocamllsp",
             "rust_analyzer",
             "ty",
             "vtsls",

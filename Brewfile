@@ -8,11 +8,10 @@ brew "jq"
 brew "tree"
 
 # Languages
-brew "llvm"
 brew "uv"
 brew "go"
-brew "rustup"
 brew "fnm"
+brew "typescript"
 
 # Media
 brew "ffmpeg"

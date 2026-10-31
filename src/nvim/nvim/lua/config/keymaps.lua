@@ -6,6 +6,9 @@ keymap("n", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 keymap("v", "<leader>p", '"+p', { desc = "Paste from system clipboard" })
 keymap("n", "<leader>@", ':let @+=expand("%:p")<CR>', { desc = "Copy current file path to clipboard" })
 
+-- Search
+keymap("n", "<Esc>", "<cmd>nohlsearch<cr><Esc>", { desc = "Clear search highlight" })
+
 -- Navigate between panes with ctrl + h/j/k/l
 keymap({ "n" }, "<C-h>", "<C-w>h")
 keymap({ "n" }, "<C-j>", "<C-w>j")
@@ -22,6 +25,21 @@ keymap("n", "<leader>fm", "<cmd>FzfLua git_status<cr>", { desc = "Find git modif
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
 
 -- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+    group = vim.api.nvim_create_augroup("lsp.keymaps", {}),
+    callback = function(args)
+        local opts = function(desc)
+            return { buffer = args.buf, desc = desc }
+        end
+        keymap("n", "gd", vim.lsp.buf.definition, opts("Go to definition"))
+        keymap("n", "grn", vim.lsp.buf.rename, opts("Rename"))
+        keymap({ "n", "x" }, "gra", vim.lsp.buf.code_action, opts("Code action"))
+        keymap("n", "grr", vim.lsp.buf.references, opts("References"))
+        keymap("n", "gri", vim.lsp.buf.implementation, opts("Go to implementation"))
+        keymap("n", "grt", vim.lsp.buf.type_definition, opts("Go to type definition"))
+        keymap("n", "K", vim.lsp.buf.hover, opts("Hover documentation"))
+    end,
+})
 keymap("n", "<leader>ld", function()
     vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle diagnostics" })

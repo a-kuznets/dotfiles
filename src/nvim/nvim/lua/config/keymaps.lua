@@ -23,6 +23,7 @@ keymap("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "Find files" })
 keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "Live grep" })
 keymap("n", "<leader>fm", "<cmd>FzfLua git_status<cr>", { desc = "Find git modified files" })
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
+keymap("n", "<leader>fo", "<cmd>FzfLua oldfiles include_current_session=true<cr>", { desc = "Find recent files" })
 
 -- LSP
 vim.api.nvim_create_autocmd("LspAttach", {

@@ -1,10 +1,11 @@
-.PHONY: all setup-mac symlink-mac install-mac help
+.PHONY: all help symlink-mac check-lsp
 
-all: setup-mac
+all: symlink-mac
 
 help:
 	@echo "Available commands:"
 	@echo "  make symlink-mac    # Symlink all components for mac"
+	@echo "  make check-lsp      # Show which nvim language servers are installed"
 
 symlink-mac:
 	@ln -sfnv "$(PWD)/src/zsh/.zshrc"         "$(HOME)/.zshrc"
@@ -18,3 +19,5 @@ symlink-mac:
 	@mkdir -p "$(HOME)/.local/bin"
 	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"     "$(HOME)/.local/bin/tscope"
 
+check-lsp:
+	@nvim -l "$(PWD)/src/nvim/check-lsp.lua"

@@ -4,6 +4,19 @@ brew "ripgrep"
 brew "fzf"
 brew "neovim"
 brew "git"
+brew "jq"
+brew "tree"
 
-# Terminal
+# Languages
+brew "llvm"
+brew "uv"
+brew "go"
+brew "rustup"
+brew "fnm"
+
+# Media
+brew "ffmpeg"
+brew "imagemagick"
+
+# Apps
 cask "ghostty"

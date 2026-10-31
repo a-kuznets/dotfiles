@@ -21,6 +21,11 @@ keymap("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "Live grep" })
 keymap("n", "<leader>fm", "<cmd>FzfLua git_status<cr>", { desc = "Find git modified files" })
 keymap("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "Find buffers" })
 
+-- LSP
+keymap("n", "<leader>ld", function()
+    vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle diagnostics" })
+
 -- Gitsigns
 keymap("n", "<leader>gss", "<cmd>Gitsigns stage_hunk<cr>", { desc = "Stage hunk" })
 keymap("n", "<leader>gsu", "<cmd>Gitsigns undo_stage_hunk<cr>", { desc = "Unstage hunk" })

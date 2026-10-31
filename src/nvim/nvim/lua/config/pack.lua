@@ -4,6 +4,7 @@ vim.pack.add({
     "https://github.com/stevearc/oil.nvim",
     "https://github.com/kepano/flexoki-neovim",
     "https://github.com/ibhagwan/fzf-lua",
+    "https://github.com/neovim/nvim-lspconfig",
 })
 
 vim.cmd.colorscheme("flexoki-light")

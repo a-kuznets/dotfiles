@@ -12,6 +12,10 @@
       "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "nvim-lspconfig": {
+      "rev": "4d363f93c3581b9212a24f7a830d7590b3f050af",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
     "oil.nvim": {
       "rev": "b73018b75affd13fa38e2fc94ef753b465f770d7",
       "src": "https://github.com/stevearc/oil.nvim"

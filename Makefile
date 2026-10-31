@@ -4,16 +4,7 @@ all: setup-mac
 
 help:
 	@echo "Available commands:"
-	@echo "  make setup-mac      # Run full mac setup (brew, symlinks)"
-	@echo "  make install-mac    # Install all components for mac"
 	@echo "  make symlink-mac    # Symlink all components for mac"
-
-setup-mac: install-mac symlink-mac
-	@echo "Mac setup complete."
-
-install-mac:
-	$(BREW_INSTALL_GUARD)
-	@brew bundle --file="$(PWD)/Brewfile"
 
 symlink-mac:
 	@ln -sfnv "$(PWD)/src/zsh/.zshrc"         "$(HOME)/.zshrc"
@@ -26,11 +17,4 @@ symlink-mac:
 
 	@mkdir -p "$(HOME)/.local/bin"
 	@ln -sfnv "$(PWD)/src/tmux/tscope.sh"     "$(HOME)/.local/bin/tscope"
-	@ln -sfnv "$(PWD)/src/tmux/wtscope.sh"    "$(HOME)/.local/bin/wtscope"
 
-define BREW_INSTALL_GUARD
-@command -v brew >/dev/null 2>&1 || ( \
-	/bin/bash -c "$$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; \
-	exit 1; \
-)
-endef

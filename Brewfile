@@ -7,12 +7,6 @@ brew "git"
 brew "jq"
 brew "tree"
 
-# Languages
-brew "uv"
-brew "go"
-brew "fnm"
-brew "typescript"
-
 # Media
 brew "ffmpeg"
 brew "imagemagick"
